@@ -183,6 +183,7 @@
       <article class="pc reveal" data-cat="cuidado"><button class="pc-img pc-zoom" type="button" data-zoom="jabon-ganoderma" aria-label="Ampliar Jabón Ganoderma"><img loading="lazy" decoding="async" alt="Jabón Ganoderma — SETASOULS" src="assets/img/jabon-ganoderma.webp"><span class="sku2-zoom">Ampliar ⤢</span></button><div class="pc-b"><span class="brandtag">SETASOULS · Piel</span><h3>Jabón Ganoderma</h3><div class="sci">Ganoderma lucidum</div><div class="pc-spacer"></div><div class="nat-fmt">Jabón artesanal</div><div class="price">$35.000</div><button class="ficha-btn" type="button" data-ficha="jabon-ganoderma">Ficha técnica</button><button class="pedir-btn add-btn" type="button" data-add data-n="Jabón Ganoderma" data-m="SETASOULS" data-env="jabón artesanal" data-price="35000">Agregar al carrito <span>+</span></button></div></article>
       <article class="pc reveal" data-cat="cuidado"><button class="pc-img pc-zoom" type="button" data-zoom="lips" aria-label="Ampliar Lips — Bálsamo Labial"><img loading="lazy" decoding="async" alt="Lips — Bálsamo Labial — SETASOULS" src="assets/img/lips.webp"><span class="sku2-zoom">Ampliar ⤢</span></button><div class="pc-b"><span class="brandtag">SETASOULS · Labios</span><h3>Lips — Bálsamo Labial</h3><div class="sci">Bálsamo natural</div><div class="pc-spacer"></div><div class="nat-fmt">Barra</div><div class="price">$30.000</div><button class="ficha-btn" type="button" data-ficha="lips">Ficha técnica</button><button class="pedir-btn add-btn" type="button" data-add data-n="Lips — Bálsamo Labial" data-m="SETASOULS" data-env="barra" data-price="30000">Agregar al carrito <span>+</span></button></div></article>
     </div>
+    <div class="cat-more-wrap"><button id="natMore" class="btn btn--dark" hidden>Ver más productos</button></div>
   </div>
 </section>
 
@@ -584,20 +585,24 @@
 <script>
 (function(){
   var tabs=document.getElementById('natTabs'); if(!tabs) return;
-  var grid=document.getElementById('natGrid'), count=document.getElementById('natCount');
+  var grid=document.getElementById('natGrid'), count=document.getElementById('natCount'), more=document.getElementById('natMore');
   var cards=[].slice.call(grid.querySelectorAll('.pc'));
-  function update(val){
-    var n=0;
-    cards.forEach(function(c){ var show=!val||c.getAttribute('data-cat')===val; c.style.display=show?'':'none'; if(show) n++; });
-    count.textContent=n+' producto'+(n===1?'':'s');
+  var INITIAL=4, STEP=8, val='', shown=INITIAL;
+  function render(){
+    var f=cards.filter(function(c){ return !val||c.getAttribute('data-cat')===val; });
+    cards.forEach(function(c){ c.style.display='none'; });
+    f.slice(0,shown).forEach(function(c){ c.style.display=''; });
+    count.textContent=f.length+' producto'+(f.length===1?'':'s');
+    more.hidden = shown>=f.length;
   }
   tabs.addEventListener('click',function(e){
     var b=e.target.closest('.chip'); if(!b) return;
     tabs.querySelectorAll('.chip').forEach(function(c){ c.classList.remove('active'); });
     b.classList.add('active');
-    update(b.getAttribute('data-val'));
+    val=b.getAttribute('data-val'); shown=INITIAL; render();
   });
-  update('');
+  more.addEventListener('click',function(){ shown+=STEP; render(); });
+  render();
 })();
 </script>
 </body>
