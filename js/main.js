@@ -88,6 +88,8 @@
   const MARCAS=["AFNAN","AHLI","AL HARAMAIN","ALEXANDRE J","AMOUAGE","ANNONE","ANOTHER","ANTONIO BANDERAS","ARABIYAT","ARABIYAT, MARWA","ARIA, ARIANA GRANDE","ARIANA GRANDE","ARMAF","AZZARO","BHARARA","BILLIE","BLACKOUD","BOND","BURBERRY","BVLGARI","CACHAREL","CALVIN KLEIN","CAPONES","CAROLINA HERRERA","CARTIER","CHANEL","CLINIQUE","CREED","DEVIER","DIESEL","DIOR","DKNY","DOLCE AND GABBANA","DSQUARED","DUMONT","FERRAGAMO","FIESTA, HINODE","FRED","FRENCH AVENUE","FUGAZZI","FUGAZZI, PERFUMES HOMBRE 2025","GEVILL FRANCE","GIORGIO ARMANI","GIVENCHY","GUESS","HINODE","HUGO BOSS","ILMIN","INITIO","ISSEY MIYAKE","JEAN PASCAL","JEAN PAUL GAULTIER","JO MILANO","JUICY COUTURE","KAJAL","KARL","KENZO","KORBAJ PARFUMS","LACOSTE","LANCOME","LATTAFA","LAURENT, RALPH","LE LABO","LORENZO PAZZAGLIA","LOUIS VUITTON","MAISON ALHAMBRA","MANCERA","MARC JACOBS","MARTIN","MATAI","MONT BLANC, MONTBLANC","MONTALE","MOSCHINO","MUGLER","MUNDUS","NAUTICA","ORIENTICA","PACO RABANNE","PANTHEON","PARFUMS DE MARLY, PARFUMS DI MARLY","PARFUMS DI MARLY","PERFUMES HOMBRE 2025, VALENTINO","PERFUMES HOMBRE 2025, VERSACE","PERRY ELLIS","PHATONE","PRADA","RASASI","RAYHAAN","RIFFS","SWISS ARMY","TIZIANA TERENZI","TOM FORD","TOM FORD, TOMMY","TOMMY","TOUS","VALENTINO","VERSACE","VICTOR & ROLF, VIKTOR & ROLF","VIVA LA JUICY","VOET","VOLARE","XERJOFF","YVES","—"];
   (function(){
     const grid=document.getElementById('catGrid'); if(!grid) return;
+    /* fallback de imagen rota (reemplaza al onerror inline, compatible con CSP estricto) */
+    grid.addEventListener('error',function(e){var im=e.target;if(im&&im.tagName==='IMG'){var box=im.closest('.pc-img');if(box)box.classList.add('noimg');im.remove();}},true);
     const sel=document.getElementById('catMarca');
     MARCAS.forEach(function(m){var o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});
     const search=document.getElementById('catSearch'), countEl=document.getElementById('catCount'),
@@ -103,8 +105,8 @@
       if(state.q){var q=norm(state.q); if(norm(p.n).indexOf(q)<0 && norm(p.m).indexOf(q)<0) return false;}
       return true;
     }
-    function esc(s){return (s||'').replace(/"/g,'&quot;');}
-    function escAttr(s){return (s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;');}
+    function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+    function escAttr(s){return esc(s);}
     function waMsg(n,m,env,price){var marca=m?' ('+m+')':'';var envtxt=env?' en '+env:'';var ptxt=price?' — $'+price.toLocaleString('es-CO'):'';return 'Hola, quiero '+n+marca+envtxt+ptxt+'. ¿Está disponible?';}
     function card(p){
       var hasV = p.v && p.v.length;
@@ -118,13 +120,13 @@
       var env0 = hasV ? p.v[0].t : '';
       var msg = waMsg(p.n, p.m, env0, p.p);
       var fallback='<span class="pc-fallback"><svg class="fdrop" viewBox="0 0 24 24" fill="#46553F" aria-hidden="true"><path d="M12 3c-3 4.5-5 7.5-5 10.2a5 5 0 0 0 10 0C17 10.5 15 7.5 12 3Z"/></svg><span class="fn">'+esc(p.n)+'</span></span>';
-      var img=p.i ? '<img loading="lazy" decoding="async" alt="'+esc(p.n)+'" src="'+p.i+'" onerror="this.closest(\'.pc-img\').classList.add(\'noimg\');this.remove();">' : '';
+      var img=p.i ? '<img loading="lazy" decoding="async" alt="'+esc(p.n)+'" src="'+escAttr(p.i)+'">' : '';
       var imgCls=p.i ? 'pc-img' : 'pc-img noimg';
       var dataV = hasV ? ' data-v="'+escAttr(JSON.stringify(p.v))+'"' : '';
       return '<article class="pc" data-n="'+escAttr(p.n)+'" data-m="'+escAttr(p.m)+'"'+dataV+'>'
-        +'<a class="'+imgCls+'" href="'+(p.u||'#')+'" target="_blank" rel="noopener">'+img+fallback+'</a>'
-        +'<div class="pc-b"><span class="brandtag">'+[p.m,p.t].filter(Boolean).join(' · ')+'</span>'
-        +'<h3>'+p.n+'</h3><div class="pc-spacer"></div>'
+        +'<a class="'+imgCls+'" href="'+escAttr(p.u||'#')+'" target="_blank" rel="noopener">'+img+fallback+'</a>'
+        +'<div class="pc-b"><span class="brandtag">'+esc([p.m,p.t].filter(Boolean).join(' · '))+'</span>'
+        +'<h3>'+esc(p.n)+'</h3><div class="pc-spacer"></div>'
         +(sel?'<div class="env-row">'+sel+'</div>':'')
         +'<div class="price">'+price+'</div>'
         +'<button class="ficha-btn" type="button" data-h="'+escAttr((p.u||'').split('/').pop())+'">Ficha técnica</button>'

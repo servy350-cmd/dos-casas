@@ -10,7 +10,7 @@ PORT = 8891
 CSP = ("default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; "
        "form-action 'self'; img-src 'self' data: https://cdn.shopify.com; "
        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; "
-       "font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; "
+       "font-src 'self' https://fonts.gstatic.com; script-src 'self'; "
        "media-src 'self'; connect-src 'self'; upgrade-insecure-requests")
 
 HEADERS = {
