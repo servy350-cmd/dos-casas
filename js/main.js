@@ -127,6 +127,7 @@
         +'<h3>'+p.n+'</h3><div class="pc-spacer"></div>'
         +(sel?'<div class="env-row">'+sel+'</div>':'')
         +'<div class="price">'+price+'</div>'
+        +'<button class="ficha-btn" type="button" data-h="'+escAttr((p.u||'').split('/').pop())+'">Ficha técnica</button>'
         +'<button class="pedir-btn add-btn" type="button" data-add data-n="'+escAttr(p.n)+'" data-m="'+escAttr(p.m)+'" data-price="'+(p.p||0)+'"'+(hasV?' data-hasv="1"':'')+'>Agregar al carrito <span>+</span></button>'
         +'</div></article>';
     }
