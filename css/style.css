@@ -500,3 +500,10 @@
   .fm-col p{font-size:.86rem;line-height:1.5}
   .fm-note{font-size:.74rem;color:var(--ink-soft);margin-top:18px;border-top:1px solid var(--line-l);padding-top:10px}
   @media (max-width:560px){ .fm-pyr{grid-template-columns:1fr} .fmodal-panel{padding:28px 22px 24px} }
+
+  /* ===== Catalogo SETASOULS (misma vista que perfumes) ===== */
+  .nat-tabs{display:flex;gap:6px;flex-wrap:wrap}
+  .pc-zoom{border:0;cursor:zoom-in;width:100%}
+  .pc-zoom:hover .sku2-zoom{opacity:1}
+  .pc .sci{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:.88rem;margin-top:-4px}
+  .nat-fmt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
