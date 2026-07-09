@@ -116,6 +116,7 @@
   .pc:hover{transform:translateY(-5px);box-shadow:0 22px 40px rgba(36,31,22,.1)}
   .pc-img{aspect-ratio:1;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px;border-bottom:1px solid var(--line-l)}
   .pc-img img{width:84%;height:84%;object-fit:contain;mix-blend-mode:multiply}
+  .pc-img[data-zoom]{cursor:zoom-in}
   .pc-b{padding:20px;display:flex;flex-direction:column;gap:7px;flex:1}
   .pc .brandtag{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
   .pc h3{font-size:1.15rem}.pc .notes{font-size:.82rem;color:var(--ink-soft);flex:1;line-height:1.5}
