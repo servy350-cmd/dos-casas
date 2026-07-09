@@ -384,7 +384,7 @@
   @media(max-width:640px){.sku2{flex:0 0 76%}.car-arrow{display:none}}
 
   /* ===== Lightbox ===== */
-  .lightbox{position:fixed;inset:0;z-index:250;background:rgba(18,22,18,.9);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;transition:opacity .3s}
+  .lightbox{position:fixed;inset:0;z-index:270;background:rgba(18,22,18,.9);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;transition:opacity .3s}
   .lightbox[hidden]{display:none}
   .lightbox.show{opacity:1}
   .lightbox img{max-width:min(92vw,500px);max-height:92vh;border-radius:5px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
@@ -487,8 +487,15 @@
   .ficha-btn:hover{color:var(--ink)}
   .sku2-buy .ficha-btn{margin-top:8px}
   .fmodal{position:fixed;inset:0;z-index:260;background:rgba(18,22,18,.88);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
+  .fmodal[hidden]{display:none}
   .fmodal.show{opacity:1}
-  .fmodal-panel{background:var(--paper);color:var(--ink);max-width:560px;width:100%;max-height:86vh;overflow:auto;padding:36px 38px 30px;position:relative;border-top:2px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+  .fmodal-panel{background:var(--paper);color:var(--ink);max-width:920px;width:100%;max-height:88vh;overflow:auto;padding:36px 38px 30px;position:relative;border-top:2px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.45)}
+  .fm-wrap{display:grid;grid-template-columns:minmax(240px,330px) 1fr;gap:36px;align-items:start}
+  .fm-wrap.noimg{grid-template-columns:1fr}
+  .fm-photo{margin:0;background:#fff;border:1px solid var(--line-l);display:flex;align-items:center;justify-content:center;padding:22px;cursor:zoom-in;position:sticky;top:0}
+  .fm-photo img{width:100%;aspect-ratio:1;object-fit:contain;mix-blend-mode:multiply}
+  .fm-tag{font-family:var(--serif);font-style:italic;font-size:1.2rem;line-height:1.35;color:var(--gold);margin:12px 0 10px}
+  .fm-res{font-size:.93rem;line-height:1.65;color:var(--ink);margin:0 0 8px}
   .fmodal-x{position:absolute;top:8px;right:14px;font-size:28px;line-height:1;background:none;border:0;cursor:pointer;color:var(--ink-soft)}
   .fmodal-x:hover{color:var(--ink)}
   .fmodal h3{font-size:1.7rem;margin:8px 0 2px}
@@ -500,6 +507,7 @@
   .fm-col h4{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-weight:400;margin-bottom:6px}
   .fm-col p{font-size:.86rem;line-height:1.5}
   .fm-note{font-size:.74rem;color:var(--ink-soft);margin-top:18px;border-top:1px solid var(--line-l);padding-top:10px}
+  @media (max-width:760px){ .fm-wrap{grid-template-columns:1fr;gap:20px} .fm-photo{position:static;max-width:300px;margin:0 auto} }
   @media (max-width:560px){ .fm-pyr{grid-template-columns:1fr} .fmodal-panel{padding:28px 22px 24px} }
 
   /* ===== Catalogo SETASOULS (misma vista que perfumes) ===== */

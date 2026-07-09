@@ -124,7 +124,7 @@
       var imgCls=p.i ? 'pc-img' : 'pc-img noimg';
       var dataV = hasV ? ' data-v="'+escAttr(JSON.stringify(p.v))+'"' : '';
       return '<article class="pc" data-n="'+escAttr(p.n)+'" data-m="'+escAttr(p.m)+'"'+dataV+'>'
-        +'<span class="'+imgCls+'"'+(p.i?' data-zoom role="button" tabindex="0" aria-label="Ampliar foto de '+escAttr(p.n)+'"':'')+'>'+img+fallback+'</span>'
+        +'<span class="'+imgCls+'"'+(p.i?' data-fh="'+escAttr((p.u||'').split('/').pop())+'" role="button" tabindex="0" aria-label="Ver ficha de '+escAttr(p.n)+'"':'')+'>'+img+fallback+'</span>'
         +'<div class="pc-b"><span class="brandtag">'+esc([p.m,p.t].filter(Boolean).join(' · '))+'</span>'
         +'<h3>'+esc(p.n)+'</h3><div class="pc-spacer"></div>'
         +(sel?'<div class="env-row">'+sel+'</div>':'')
