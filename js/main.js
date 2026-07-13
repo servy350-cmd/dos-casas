@@ -11,7 +11,7 @@
   const IMG={logo:'assets/img/logo.webp',bottle:'assets/img/bottle.webp'};
   document.querySelectorAll('[data-img]').forEach(el=>{el.src=IMG[el.dataset.img];});
 
-  const WA='573001234567';
+  const WA='573194428132';
   const waLink=(t)=>'https://wa.me/'+WA+'?text='+encodeURIComponent(t);
   const general='Hola, quiero información de los perfumes y la medicina natural de DOS CASAS.';
   var wf=document.getElementById('waFloat'); if(wf) wf.href=waLink(general);
@@ -60,7 +60,7 @@
     function pick(arr){ var i; do{ i=Math.floor(Math.random()*arr.length); }while(arr.length>1 && i===lastIdx); lastIdx=i; return i; }
     function cap(s){ return s ? s.charAt(0).toUpperCase()+s.slice(1) : s; }
     function capWords(s){ return s.replace(/\S+/g,function(w){return w.charAt(0).toUpperCase()+w.slice(1).toLowerCase();}); }
-    function waNum(){ return (typeof WA!=='undefined' && WA) ? WA : '573001234567'; }
+    function waNum(){ return (typeof WA!=='undefined' && WA) ? WA : '573194428132'; }
     function build(){
       if(!cur) return;
       var d=RIT[cur], frase=d.f[pick(d.f)];

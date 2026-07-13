@@ -1,6 +1,6 @@
 (function(){
   function escH(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
-  function waNum(){ return (typeof WA!=='undefined' && WA) ? WA : '573001234567'; }
+  function waNum(){ return (typeof WA!=='undefined' && WA) ? WA : '573194428132'; }
   var KEY='dc_cart_v1', CART=[];
   try{ CART=JSON.parse(localStorage.getItem(KEY)||'[]')||[]; }catch(e){ CART=[]; }
   function save(){ try{ localStorage.setItem(KEY, JSON.stringify(CART)); }catch(e){} }

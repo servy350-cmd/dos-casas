@@ -6,7 +6,7 @@ Si sos investigador/a de seguridad o hacker ético/a, esta es la forma de report
 ## Cómo reportar una vulnerabilidad
 
 - **Correo:** kkuroshh333@gmail.com
-- **WhatsApp:** https://wa.me/573001234567
+- **WhatsApp:** https://wa.me/573194428132
 
 Incluí, si podés: descripción del hallazgo, pasos para reproducirlo, impacto y
 cualquier captura o prueba de concepto. Respondemos lo antes posible.
