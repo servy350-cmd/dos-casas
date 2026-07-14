@@ -94,14 +94,30 @@
     MARCAS.forEach(function(m){var o=document.createElement('option');o.value=m;o.textContent=m;sel.appendChild(o);});
     const search=document.getElementById('catSearch'), countEl=document.getElementById('catCount'),
           moreBtn=document.getElementById('catMore'), emptyEl=document.getElementById('catEmpty'), clearBtn=document.getElementById('catClear');
-    const state={q:'',g:'',o:'',t:'',m:'',shown:0}, INITIAL=4, STEP=8; let filtered=[];
+    const state={q:'',g:'',o:'',t:'',m:'',ml:'',shown:0}, INITIAL=4, STEP=8; let filtered=[];
     function norm(s){return (s||'').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');}
     function has(v,val){return (v||'').split(',').map(function(x){return x.trim();}).indexOf(val)>=0;}
+    /* tama\u00f1os en ml del producto (solo perfumes con esa opci\u00f3n en Imperial) */
+    function mlBuckets(p){
+      var b={};
+      (p.v||[]).forEach(function(v){
+        var t=v.t||'';
+        if(/decant/i.test(t)){b['decant']=1;return;}
+        var m=t.match(/(\d+)\s*ml/i); if(!m) return;
+        var n=+m[1];
+        if(n>=100) b['100+']=1;
+        else if(n>=40) b['50-80']=1;
+        else if(n>=20) b['30']=1;
+        else b['decant']=1;
+      });
+      return b;
+    }
     function match(p){
       if(state.g && !has(p.g,state.g)) return false;
       if(state.o && !has(p.o,state.o)) return false;
       if(state.t && !has(p.t,state.t)) return false;
       if(state.m && p.m!==state.m) return false;
+      if(state.ml && !mlBuckets(p)[state.ml]) return false;
       if(state.q){var q=norm(state.q); if(norm(p.n).indexOf(q)<0 && norm(p.m).indexOf(q)<0) return false;}
       return true;
     }
@@ -142,7 +158,7 @@
       countEl.textContent=filtered.length+' perfume'+(filtered.length===1?'':'s');
       moreBtn.hidden = state.shown>=filtered.length;
       emptyEl.hidden = filtered.length>0;
-      var active=!!(state.q||state.g||state.o||state.t||state.m);
+      var active=!!(state.q||state.g||state.o||state.t||state.m||state.ml);
       if(clearBtn) clearBtn.hidden=!active;
     }
     document.querySelectorAll('.cat-tabs').forEach(function(group){
@@ -155,7 +171,7 @@
     sel.addEventListener('change',function(){state.m=sel.value;apply(true);});
     var tmr; search.addEventListener('input',function(){clearTimeout(tmr);tmr=setTimeout(function(){state.q=search.value.trim();apply(true);},170);});
     moreBtn.addEventListener('click',function(){apply(false);});
-    function doReset(){state.q=state.g=state.o=state.t=state.m='';search.value='';sel.value='';document.querySelectorAll('.cat-tabs').forEach(function(g){g.querySelectorAll('.chip').forEach(function(c,i){c.classList.toggle('active',i===0);});});apply(true);}
+    function doReset(){state.q=state.g=state.o=state.t=state.m=state.ml='';search.value='';sel.value='';document.querySelectorAll('.cat-tabs').forEach(function(g){g.querySelectorAll('.chip').forEach(function(c,i){c.classList.toggle('active',i===0);});});apply(true);}
     var reset=document.getElementById('catReset');
     if(reset)reset.addEventListener('click',doReset);
     if(clearBtn)clearBtn.addEventListener('click',doReset);
