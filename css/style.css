@@ -516,3 +516,26 @@
   .pc-zoom:hover .sku2-zoom{opacity:1}
   .pc .sci{font-family:var(--serif);font-style:italic;color:var(--ink-soft);font-size:.88rem;margin-top:-4px}
   .nat-fmt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+
+  /* ===== marca ESSENTIA LUXXE en el header ===== */
+  .brand .bt i{font-style:italic;color:var(--gold)}
+  header.nav:not(.scrolled) .brand .bt{color:rgba(246,241,230,.95);text-shadow:0 1px 8px rgba(18,11,2,.5)}
+  header.nav:not(.scrolled) .brand .bt i{color:var(--gold-2)}
+
+  /* ===== buscador del header ===== */
+  .nav-search{position:relative;display:flex;align-items:center;min-width:0}
+  .nav-search svg{position:absolute;left:12px;width:14px;height:14px;color:var(--ink-soft);pointer-events:none;transition:color .4s}
+  .nav-search-in{width:160px;max-width:36vw;padding:9px 13px 9px 34px;border:1px solid var(--line-l);border-radius:999px;background:rgba(245,241,231,.92);font-family:var(--sans);font-size:.85rem;color:var(--ink);transition:width .35s,background .4s,border-color .4s,color .4s;-webkit-appearance:none;appearance:none}
+  .nav-search-in::placeholder{color:var(--ink-soft)}
+  .nav-search-in:focus{outline:none;width:220px;border-color:var(--gold)}
+  header.nav:not(.scrolled) .nav-search-in{background:rgba(18,14,6,.32);border-color:rgba(246,241,230,.38);color:#fff}
+  header.nav:not(.scrolled) .nav-search-in::placeholder{color:rgba(246,241,230,.78)}
+  header.nav:not(.scrolled) .nav-search svg{color:rgba(246,241,230,.85)}
+  @media(max-width:600px){
+    .brand .bt{font-size:1rem;letter-spacing:.1em}
+    .brand .bt small{display:none}
+    .brand img{height:38px}
+    .nav-in{gap:12px}.nav-r{gap:12px}
+    .nav-search-in{width:104px;max-width:32vw;font-size:.8rem;padding:8px 10px 8px 30px}
+    .nav-search-in:focus{width:150px;max-width:44vw}
+  }
