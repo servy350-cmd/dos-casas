@@ -538,4 +538,9 @@
     .nav-in{gap:12px}.nav-r{gap:12px}
     .nav-search-in{width:104px;max-width:32vw;font-size:.8rem;padding:8px 10px 8px 30px}
     .nav-search-in:focus{width:150px;max-width:44vw}
+    /* mientras se busca: la marca cede su espacio al campo (no se enciman) */
+    header.nav.searching .brand .bt{display:none}
+    header.nav.searching .nav-r{flex:1}
+    header.nav.searching .nav-search{flex:1}
+    header.nav.searching .nav-search-in,header.nav.searching .nav-search-in:focus{width:100%;max-width:none}
   }
