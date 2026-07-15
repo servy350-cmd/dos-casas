@@ -536,8 +536,10 @@
     .brand .bt small{display:none}
     .brand img{height:38px}
     .nav-in{gap:12px}.nav-r{gap:12px}
-    .nav-search-in{width:104px;max-width:32vw;font-size:.8rem;padding:8px 10px 8px 30px}
+    /* 16px como minimo: con menos, el celular hace zoom automatico al abrir el teclado */
+    .nav-search-in{width:104px;max-width:32vw;font-size:16px;padding:8px 10px 8px 30px}
     .nav-search-in:focus{width:150px;max-width:44vw}
+    .cat-search{font-size:16px}
     /* mientras se busca: la marca cede su espacio al campo (no se enciman) */
     header.nav.searching .brand .bt{display:none}
     header.nav.searching .nav-r{flex:1}
