@@ -1,8 +1,8 @@
 
   :root{
     --cream:#EAE3D2; --cream-2:#F1ECDF; --paper:#F5F1E7;
-    --forest:#2C3A2D; --forest-2:#222C22; --forest-deep:#161D17;
-    --olive:#46553F; --green-card:#33402C;
+    --forest:#262421; --forest-2:#1B1A17; --forest-deep:#121110;
+    --olive:#8A6D2F; --green-card:#26241F;
     --gold:#BE9F4C; --gold-2:#D8BD7E;
     --ink:#241F16; --ink-soft:rgba(36,31,22,.62);
     --cream-text:#ECE6D6; --cream-soft:rgba(236,230,214,.72);
@@ -63,7 +63,7 @@
   /* ---------- hero ---------- */
   .hero{position:relative;min-height:92vh;display:flex;align-items:center;color:var(--ink);
     background:
-      radial-gradient(120% 90% at 80% 30%, rgba(70,85,63,.55), transparent 60%),
+      radial-gradient(120% 90% at 80% 30%, rgba(80,68,42,.5), transparent 60%),
       linear-gradient(120deg,var(--forest-deep) 0%,var(--forest-2) 42%,var(--forest) 100%);
     overflow:hidden}
   
@@ -91,7 +91,7 @@
   .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
   .fcard{position:relative;border-radius:4px;overflow:hidden;min-height:420px;display:flex;padding:48px 44px}
   .fcard--cream{background:linear-gradient(135deg,var(--cream-2),var(--paper))}
-  .fcard--green{background:linear-gradient(135deg,#3c4a34,#2a3526);color:var(--cream)}
+  .fcard--green{background:linear-gradient(135deg,#2A2722,#1B1916);color:var(--cream)}
   .fcard-txt{position:relative;z-index:2;max-width:62%;display:flex;flex-direction:column;align-items:flex-start}
   .fcard .ficon{width:54px;height:54px;border-radius:50%;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;opacity:.85;margin-bottom:26px}
   .fcard h3{font-size:clamp(1.5rem,2.4vw,2rem);margin-bottom:16px}
@@ -142,12 +142,12 @@
 
   /* ---------- ritual ---------- */
   .ritual{position:relative;color:var(--cream);overflow:hidden;
-    background:radial-gradient(120% 100% at 75% 40%,rgba(70,85,63,.5),transparent 60%),linear-gradient(120deg,var(--forest-deep),var(--forest-2) 60%,var(--forest))}
+    background:radial-gradient(120% 100% at 75% 40%,rgba(80,68,42,.45),transparent 60%),linear-gradient(120deg,var(--forest-deep),var(--forest-2) 60%,var(--forest))}
   .ritual-in{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:clamp(64px,8vw,110px) 0}
   .ritual h2{margin:16px 0 20px}
   .ritual .lede{color:var(--cream-soft);max-width:34ch;margin-bottom:30px}
   .ritual-photo{position:relative;min-height:340px;border-radius:4px;overflow:hidden;
-    background:radial-gradient(circle at 60% 40%,rgba(216,189,126,.18),transparent 60%),linear-gradient(160deg,#3a4732,#212a20);
+    background:radial-gradient(circle at 60% 40%,rgba(216,189,126,.18),transparent 60%),linear-gradient(160deg,#2A2722,#1B1916);
     border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center}
   .ritual-photo .ph-note{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream-soft);opacity:.6}
   .ritual-photo svg{position:absolute;opacity:.5}
@@ -276,7 +276,7 @@
   /* mundo oscuro / hongos: realce verde-oliva tenue, sin oro */
   .fx-fine .sku::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;
     transition:opacity .4s;z-index:1;
-    background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(70,85,63,.16),transparent 62%)}
+    background:radial-gradient(300px circle at var(--mx,50%) var(--my,50%),rgba(190,159,76,.14),transparent 62%)}
   .fx-fine .sku.tilt::after{opacity:1}
   .fx-fine .sku>*{position:relative;z-index:2}
 
@@ -298,7 +298,7 @@
 
   /* ===== Generador de ritual (mundo oscuro) ===== */
   .ritual-gen{position:relative;min-height:340px;border-radius:6px;overflow:hidden;padding:30px 28px;
-    background:radial-gradient(120% 90% at 70% 18%,rgba(70,85,63,.30),transparent 60%),linear-gradient(160deg,rgba(20,27,20,.74),rgba(16,22,16,.84));
+    background:radial-gradient(120% 90% at 70% 18%,rgba(80,68,42,.30),transparent 60%),linear-gradient(160deg,rgba(23,21,18,.74),rgba(18,17,14,.84));
     border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
     display:flex;flex-direction:column;gap:16px}
   .rg-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold-2)}
@@ -332,7 +332,7 @@
   .cart-badge{position:absolute;top:-7px;right:-8px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--gold);color:#fff;font-family:var(--mono);font-size:10px;line-height:17px;text-align:center;font-weight:700}
   .cart-badge.bump{animation:cbump .35s ease}
   @keyframes cbump{0%{transform:scale(1)}40%{transform:scale(1.35)}100%{transform:scale(1)}}
-  .cart-overlay{position:fixed;inset:0;border:none;width:100%;height:100%;background:rgba(22,29,23,.5);z-index:200;opacity:0;transition:opacity .3s;cursor:pointer}
+  .cart-overlay{position:fixed;inset:0;border:none;width:100%;height:100%;background:rgba(20,19,16,.5);z-index:200;opacity:0;transition:opacity .3s;cursor:pointer}
   .cart-overlay.show{opacity:1}
   .cart-drawer{position:fixed;top:0;right:0;height:100%;width:400px;max-width:92vw;background:var(--paper);border-left:1px solid var(--line-l);z-index:210;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .34s cubic-bezier(.4,0,.2,1);box-shadow:-20px 0 50px rgba(36,31,22,.16)}
   .cart-drawer.open{transform:none}
@@ -390,7 +390,7 @@
   @media(max-width:640px){.sku2{flex:0 0 76%}.car-arrow{display:none}}
 
   /* ===== Lightbox ===== */
-  .lightbox{position:fixed;inset:0;z-index:270;background:rgba(18,22,18,.9);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;transition:opacity .3s}
+  .lightbox{position:fixed;inset:0;z-index:270;background:rgba(18,17,14,.9);display:flex;align-items:center;justify-content:center;padding:28px;opacity:0;transition:opacity .3s}
   .lightbox[hidden]{display:none}
   .lightbox.show{opacity:1}
   .lightbox img{max-width:min(92vw,500px);max-height:92vh;border-radius:5px;box-shadow:0 24px 70px rgba(0,0,0,.55)}
@@ -490,7 +490,7 @@
   .ficha-btn{margin-top:10px;background:none;border:0;cursor:pointer;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);text-decoration:underline;text-underline-offset:4px;padding:0;align-self:flex-start}
   .ficha-btn:hover{color:var(--ink)}
   .sku2-buy .ficha-btn{margin-top:8px}
-  .fmodal{position:fixed;inset:0;z-index:260;background:rgba(18,22,18,.88);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
+  .fmodal{position:fixed;inset:0;z-index:260;background:rgba(18,17,14,.88);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
   .fmodal[hidden]{display:none}
   .fmodal.show{opacity:1}
   .fmodal-panel{background:var(--paper);color:var(--ink);max-width:920px;width:100%;max-height:88vh;overflow:auto;padding:36px 38px 30px;position:relative;border-top:2px solid var(--gold);box-shadow:0 30px 80px rgba(0,0,0,.45)}
