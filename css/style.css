@@ -51,18 +51,11 @@
   header.nav{position:absolute;top:40px;left:0;right:0;z-index:60;transition:background .4s,border-color .4s,box-shadow .4s;border-bottom:1px solid transparent}
   header.nav.scrolled{position:fixed;top:0;background:rgba(245,241,231,.82);backdrop-filter:blur(16px) saturate(1.1);-webkit-backdrop-filter:blur(16px) saturate(1.1);border-bottom:1px solid var(--line-l);box-shadow:0 8px 30px rgba(36,31,22,.08)}
   header.nav.scrolled .brand .bt,header.nav.scrolled .icon-btn,header.nav.scrolled .burger{color:var(--ink)}
-  header.nav.scrolled nav.links a{color:var(--ink-soft)}
   .nav-in{max-width:var(--maxw);margin:0 auto;padding:22px 36px;display:flex;align-items:center;justify-content:space-between;gap:24px}
   .brand{display:flex;align-items:center;gap:13px}
   .brand img{height:44px;width:auto}
   .brand .bt{font-family:var(--serif);font-size:1.35rem;letter-spacing:.14em;color:var(--ink);line-height:1;transition:color .4s}
   .brand .bt small{display:block;font-family:var(--mono);font-size:8px;letter-spacing:.34em;color:var(--gold);margin-top:5px}
-  nav.links{display:flex;align-items:center}
-  nav.links a{font-size:12.5px;color:var(--ink-soft);position:relative;padding:2px 15px;white-space:nowrap;transition:color .3s}
-  nav.links a+a{border-left:1px solid rgba(246,241,230,.25)}
-  header.nav.scrolled nav.links a+a{border-left-color:rgba(36,31,22,.2)}
-  nav.links a::after{content:"";position:absolute;left:15px;right:15px;bottom:-4px;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:center;transition:transform .3s}
-  nav.links a:hover{color:var(--cream)}nav.links a:hover::after{transform:scaleX(1)}
   .nav-r{display:flex;align-items:center;gap:18px}
   .icon-btn{color:var(--ink);display:flex;transition:color .4s}
   .burger{display:none;background:none;border:none;color:var(--ink);cursor:pointer;padding:6px;transition:color .4s}
@@ -190,14 +183,6 @@
   .reveal.in{opacity:1;transform:none}
 
   /* responsive */
-  @media(max-width:1180px){
-    .nav-in{padding:22px 24px;gap:14px}
-    .nav-r{gap:12px}
-    nav.links a{padding:2px 9px;font-size:12px}
-    nav.links a::after{left:9px;right:9px}
-    .nav-search-in{width:96px}
-    .brand .bt{font-size:1.05rem;letter-spacing:.1em;white-space:nowrap}
-  }
   @media(max-width:980px){
     .hero{min-height:auto;padding:120px 0 70px}
     .hero-photo{position:relative;width:100%;height:auto;order:-1}
@@ -215,7 +200,7 @@
     .ritual-in{grid-template-columns:1fr;gap:34px}
     .ritual-photo{order:-1;min-height:240px}
     .foot-grid{grid-template-columns:1fr 1fr}
-    nav.links,.nav-r .btn{display:none}.burger{display:block}
+    .nav-r .btn{display:none}.burger{display:block}
   }
   @media(max-width:600px){
     .trust-grid,.grid4,.ship-grid,.foot-grid{grid-template-columns:1fr}
@@ -438,8 +423,6 @@
 
   /* nav invisible arriba, letras claras legibles sobre el oro */
   header.nav:not(.scrolled){background:transparent;border-bottom-color:transparent;box-shadow:none}
-  header.nav:not(.scrolled) nav.links a{color:rgba(246,241,230,.92);text-shadow:0 1px 6px rgba(18,11,2,.55)}
-  header.nav:not(.scrolled) nav.links a:hover{color:#fff}
   header.nav:not(.scrolled) .icon-btn,header.nav:not(.scrolled) .burger{color:rgba(246,241,230,.94)}
 
 

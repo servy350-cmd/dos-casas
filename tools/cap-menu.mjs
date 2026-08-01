@@ -11,15 +11,15 @@ for (const [nombre, w, scroll] of [['1440-arriba', 1440, 0], ['1440-scroll', 144
   await page.goto(URL, { waitUntil: 'networkidle', timeout: 60000 });
   if (scroll) { await page.evaluate(s => window.scrollTo(0, s), scroll); await page.waitForTimeout(600); }
   const m = await page.evaluate(() => {
-    const r = [...document.querySelectorAll('.brand, nav.links, .nav-r')].map(e => e.getBoundingClientRect());
-    const links = [...document.querySelectorAll('nav.links a')];
+    const brand = document.querySelector('.brand').getBoundingClientRect();
+    const navr = document.querySelector('.nav-r').getBoundingClientRect();
     return {
-      solape: r[0].right > r[1].left || r[1].right > r[2].left,
+      sinLinks: document.querySelectorAll('nav.links').length === 0,
+      solape: brand.right > navr.left,
       desborde: document.documentElement.scrollWidth > window.innerWidth,
-      unaLinea: links.every(a => a.getBoundingClientRect().height < 30),
     };
   });
-  console.log(`${nombre}: solape=${m.solape} desborde=${m.desborde} unaLinea=${m.unaLinea} erroresConsola=${errores.length}`);
+  console.log(`${nombre}: sinLinks=${m.sinLinks} solape=${m.solape} desborde=${m.desborde} erroresConsola=${errores.length}`);
   await page.screenshot({ path: `C:/Users/usuario/dos-casas/tools/cap-menu-${nombre}.png` });
   await page.close();
 }
