@@ -162,7 +162,7 @@
   .ship-c p{font-size:.8rem;color:var(--ink-soft);line-height:1.45}
 
   /* ---------- footer ---------- */
-  footer{background:var(--forest-deep);color:var(--cream);padding:0}
+  footer{background:#080806;color:var(--cream);padding:0}
   .foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;padding:64px 0 48px}
   .foot-brand img{height:46px;margin-bottom:18px}
   .foot-brand p{color:var(--cream-soft);font-size:.9rem;max-width:30ch}
